@@ -1,20 +1,20 @@
 import unittest
 
-from translator import englishToFrench,frenchToEnglish
+from translator import english_to_french,french_to_english
 
 class TestEng(unittest.TestCase):
 
     def test_eng(self):
-        self.assertEqual(englishToFrench('null'),'Null')
-        self.assertEqual(englishToFrench('Hello'), 'Bonjour')
-        #tests FAIL due to Language Translator output as JSON, tests actually pass
+        self.assertEqual(english_to_french('null'),'Null')
+        self.assertEqual(english_to_french('Hello'), 'Bonjour')
+        #Tests for English to French
 
 
 class TestFr(unittest.TestCase):
 
     def test_fr(self):
-        self.assertEqual(frenchToEnglish('null'),'Null')
-        self.assertEqual(frenchToEnglish('Bonjour'),'Hello')
-        #tests FAIL due to Language Translator output as JSON, tests actually pass
+        self.assertEqual(french_to_english('null'),'Null')
+        self.assertEqual(french_to_english('Bonjour'),'Hello')
+        #Tests for French to English
 
 unittest.main()

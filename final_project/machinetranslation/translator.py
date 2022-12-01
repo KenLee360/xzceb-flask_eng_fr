@@ -9,20 +9,20 @@ language_translator = LanguageTranslatorV3(
 )
 
 language_translator.set_service_url(
-    'https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/9074e938-5391-4ab9-b292-1c1b6825b51e'
+    'URL'
 )
 
 def english_to_french(french_text):
-    #Converts English Text to French Text outputs as JSON
+    #Converts English Text to French
     french_text = language_translator.translate(
         text=french_text,model_id='en-fr').get_result()
-    return french_text
+    return french_text.get("translations")[0].get("translation")
 
 def french_to_english(english_text):
-    ##Converts French Text to English Text outputs as JSON
+    ##Converts French Text to English
     english_text = language_translator.translate(
         text=english_text,model_id='fr-en').get_result()
-    return english_text
+    return english_text.get("translations")[0].get("translation")
 
 
 while True:
@@ -32,11 +32,11 @@ while True:
     if CHOICE == 'French':
         #Runs function called above, converts to French
         Translated = english_to_french(WORD)
-        print(json.dumps(Translated))
+        print(Translated)
         break
     if CHOICE == 'English':
         #Runs function called above, converts to English
         Translated = french_to_english(WORD)
-        print(json.dumps(Translated))
+        print(Translated)
         break
 #Program Complete
